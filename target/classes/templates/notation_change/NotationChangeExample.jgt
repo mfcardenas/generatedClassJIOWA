@@ -1,0 +1,19 @@
+//# example for template notation changes
+
+<<{[( << ==> « , >> ==> » )]}>>  //# french guillemets
+
+« foreachAttribute --> SubTemplate.jgt »  
+
+« {[( « ==> [[[ , » ==> ]]] )]} »  //# redefine again
+
+[[[ If --> Then:      { /* do something here */ } | 
+           Otherwise: { /* do something here */ } | 
+           I_mean:    { /* do something here */ } |
+           But:       { /* do something here */ }   
+]]]
+        
+[[[ {[( [[[ ==> << ,  ]]] ==> >>  )]}  ]]]   //# back to original notation
+  
+<< ifCondition --> Then: { /* then */ } | Else: { /* else */ } >>        
+        
+          

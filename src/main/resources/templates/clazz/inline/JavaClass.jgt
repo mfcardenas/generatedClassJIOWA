@@ -1,0 +1,42 @@
+package <<PackageName>>;    
+  
+public class <<ClassName>>  implements Object
+{ 
+    << foreachAttribute --> Attribute: 
+    {
+        protected <<DataType>> <<AttributeName>>;
+    } 
+    />> 
+    
+    /**
+     * Constructor with all attributes.
+     */
+    public <<ClassName>>(<<foreachAttribute --> Argument: {<<DataType>> <<AttributeName>>, } /,>>)  //#  operator  /,  deletes the last trailing comma from the list of arguments
+    {
+        << foreachAttribute --> AttributeInit: 
+        {
+            this.<<AttributeName>> = <<AttributeName>>;
+        } 
+        />>
+    }
+    
+    << foreachAttribute --> Getter:
+    {
+        /**
+         * Returns the value of type <<DataType>> for attribute <<AttributeName>>.
+         * @return result value
+         */
+        public <<DataType>> get<<+AttributeName>>()   
+        {
+            return this.<<AttributeName>>;
+        }
+
+    }
+    />>         
+    
+    // {{ProtectedRegionStart::ManuallyWrittenCode}}    
+        // ...
+        // insert your customized code here!        
+        // ... 
+    // {{ProtectedRegionEnd}}
+}

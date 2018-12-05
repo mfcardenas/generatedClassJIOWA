@@ -1,0 +1,6 @@
+
+<<fuerJedesElement --> SubTemplate.jgt>>
+
+<<pourChaqueElement --> SubTemplate.jgt>>
+
+<< Whatever you like --> SubTemplate.jgt  >>
