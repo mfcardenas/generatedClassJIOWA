@@ -20,10 +20,10 @@ public class ExampleCodeGenerationApplication {
      * @param arguments
      */
     public static void main(String[] arguments) throws IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        JiowaCodeGenConfig config = new JiowaCodeGenConfig("codegen.properties");
-        ClassGenerator      classGenerator  = new ClassGenerator(config);
-        JiowaCodeGeneratorEngine engine = new JiowaCodeGeneratorEngine(classGenerator);
-        engine.start();
+//        JiowaCodeGenConfig config = new JiowaCodeGenConfig("codegen.properties");
+//        ClassGenerator      classGenerator  = new ClassGenerator(config);
+//        JiowaCodeGeneratorEngine engine = new JiowaCodeGeneratorEngine(classGenerator);
+//        engine.start();
 
         compile("C:\\Users\\mcardenas\\Downloads\\generatedClassJava\\src\\main\\java\\generated\\cls\\Joselo.java");
         execute("generated.cls.Joselo");
@@ -39,9 +39,20 @@ public class ExampleCodeGenerationApplication {
         ClassLoader loadClass = ToolProvider.getSystemToolClassLoader();
         Class<?> cls = Class.forName(file, true, loadClass); // Should print "hello".
 
-        Constructor constructor = cls.getConstructor(new Class[] { long.class, String.class });
-        Object invoker = constructor.newInstance(new Object[] { 1, "Agua" });
+        /**
+         * CON PARAMETROS EL CONSTRUCTOR
+         */
+        Object instance = cls.getConstructor().newInstance(); // Should print "world".
+        System.out.println(instance);
+        Method m = cls.getMethod("getText"); // get the method you want to call
+        String args = null; // the arguments. Change this if you want to pass different args
+        m.invoke(instance);
 
+        /**
+         * CON PARAMETROS EL CONSTRUCTOR
+         */
+        Constructor constructor = cls.getConstructor(new Class[] { Long.class, String.class });
+        Object invoker = constructor.newInstance(new Object[] { 1L, "Agua" });
         Class arguments[] = new Class[] {};
         Method objMethod = cls.getMethod("getText", arguments);
         Object result = objMethod.invoke(invoker, (Object[]) arguments);
